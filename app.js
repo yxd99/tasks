@@ -36,17 +36,17 @@ const main = async() => {
                 let message = "Seleccione la lista a visualizar";
                 const typeRead = await readList(message, choices);
                 const listTasks = task.readTasks(typeRead);
-                let tasks = [];
+                message = `Lista de tareas ${typeRead}\n`;
 
                 if(listTasks.length > 0){
                     listTasks.forEach((element, index) => {
                         let name = `${(index+1)}.`;
                         const state = element.state;
                         name = `${name.green} ${element.description} (Estado: ${state == "Completada" ? state.green : state })`;
-                        tasks.push({value: element.id, name: name});
+                        message += `${name}\n`
                     });
-                    message = `Lista de tareas ${typeRead}`;
-                    const _ = await readList(message, tasks);
+                    message 
+                    console.log(message);
                 }else{
                     console.log("No hay tareas.");
                 }
