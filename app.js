@@ -2,6 +2,7 @@ require("colors");
 const { inquirerMain, readInput, readList, readConfirm, readCheckBox } = require("./helpers/modules/inquirer.js");
 const { pause } = require("./helpers/modules/pause.js");
 const Tasks = require("./helpers/modules/tasks.js");
+const { saveFS } = require("./helpers/src/js/functions.js");
 
 
 const main = async() => {
@@ -141,6 +142,16 @@ const main = async() => {
                 }else{
                     console.log("No hay tareas.")
                 }
+                break;
+            }
+
+            case "6": {
+                const taskSave = task.readTasks();
+                let sendTasks = '';
+                taskSave.forEach(task => {
+                    sendTasks += `- ${task.description} (Estado: ${task.state})\n`
+                })
+                saveFS(sendTasks);
                 break;
             }
 

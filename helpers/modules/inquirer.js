@@ -25,8 +25,12 @@ const inquirerMain = async() => {
             name: `${"5.".green} Cambiar estado tareas`
         },
         { 
+            value: "6",
+            name: `${"6.".green} Guardar tareas en un archivo`
+        },
+        { 
             value: "0",
-            name: `${"6.".green} Salir`
+            name: `${"7.".green} Salir`
         }
     ]
 

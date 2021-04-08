@@ -6,7 +6,7 @@ const isValid = option => {
 }
 
 const saveFS = task => {
-    fs.writeFile("../files/tasks.json", task, (error) => {
+    fs.writeFile("./helpers/src/files/tasks.txt", task, (error) => {
         if(error)
             console.log(error)
         else
